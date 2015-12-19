@@ -1,0 +1,292 @@
+<sdf version='1.5'>
+  <model name='kinova_kg3'>
+    <link name='jaco_link_hand'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.000227691 0.00425469 0.0759514 0 -0 0</pose>
+        <mass>0.121635</mass>
+        <inertia>
+          <ixx>0.000215057</ixx>
+          <ixy>1.82062e-08</ixy>
+          <ixz>1.11116e-07</ixz>
+          <iyy>0.00018746</iyy>
+          <iyz>1.20191e-06</iyz>
+          <izz>0.000158164</izz>
+        </inertia>
+      </inertial>
+      <collision name='jaco_link_hand_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_hand.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='jaco_link_hand_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_hand.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='jaco_link_finger_2'>
+      <pose frame=''>0.0216845 0.0270991 0.114669 1.56248 -0.979965 1.39417</pose>
+      <inertial>
+        <pose frame=''>0.0208281 -0.00622581 -1.06167e-07 0 -0 0</pose>
+        <mass>0.00888494</mass>
+        <inertia>
+          <ixx>1.04332e-06</ixx>
+          <ixy>1.35201e-07</ixy>
+          <ixz>-1.63982e-11</ixz>
+          <iyy>2.40167e-06</iyy>
+          <iyz>-2.0631e-12</iyz>
+          <izz>2.18919e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='jaco_link_finger_2_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='jaco_link_finger_2_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='jaco_joint_finger_2' type='revolute'>
+      <child>jaco_link_finger_2</child>
+      <parent>jaco_link_hand</parent>
+      <axis>
+        <xyz>0.983195 -0.1825 0.00463032</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.872665</upper>
+          <effort>30</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='jaco_link_finger_tip_2'>
+      <pose frame=''>0.0260012 0.0512841 0.151295 1.56248 -0.979965 1.39417</pose>
+      <inertial>
+        <pose frame=''>0.0140499 -0.00605434 2.02852e-07 0 -0 0</pose>
+        <mass>0.0124078</mass>
+        <inertia>
+          <ixx>6.83326e-07</ixx>
+          <ixy>-2.81123e-07</ixy>
+          <ixz>-7.46392e-12</ixz>
+          <iyy>2.46927e-06</iyy>
+          <iyz>1.87459e-11</iyz>
+          <izz>2.36577e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='jaco_link_finger_tip_2_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_tip_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='jaco_link_finger_tip_2_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_tip_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='jaco_joint_finger_tip_2' type='revolute'>
+      <child>jaco_link_finger_tip_2</child>
+      <parent>jaco_link_finger_2</parent>
+      <axis>
+        <xyz>0.983195 -0.1825 0.00463032</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.872665</upper>
+          <effort>30</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='jaco_link_finger_2_inner_1'>
+      <pose frame=''>0.0213983 0.0251801 0.0889963 0.00485755 -0.307065 -1.7558</pose>
+      <inertial>
+        <pose frame=''>-0.00572437 6.73494e-05 0.00418469 0 -0 0</pose>
+        <mass>0.00136882</mass>
+        <inertia>
+          <ixx>4.53246e-08</ixx>
+          <ixy>-3.14487e-10</ixy>
+          <ixz>-1.85243e-09</ixz>
+          <iyy>2.87248e-08</iyy>
+          <iyz>8.2694e-10</iyz>
+          <izz>5.15648e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='jaco_link_finger_2_inner_1_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_inner_1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='jaco_link_finger_2_inner_1_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_inner_1.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='jaco_joint_finger_2_inner_1' type='prismatic'>
+      <child>jaco_link_finger_2_inner_1</child>
+      <parent>jaco_link_hand</parent>
+      <axis>
+        <xyz>0.0508244 0.297995 0.953213</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.1</upper>
+          <effort>30</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='jaco_link_finger_2_inner_2'>
+      <pose frame=''>0.0231156 0.0343095 0.0949679 1.55992 -1.13111 1.39711</pose>
+      <inertial>
+        <pose frame=''>0.0247689 -0.000547177 -6.06988e-05 0 -0 0</pose>
+        <mass>0.00285898</mass>
+        <inertia>
+          <ixx>4.44582e-08</ixx>
+          <ixy>4.12514e-10</ixy>
+          <ixz>3.49005e-09</ixz>
+          <iyy>8.43548e-07</iyy>
+          <iyz>-1.98061e-10</iyz>
+          <izz>8.20513e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='jaco_link_finger_2_inner_2_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_inner_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='jaco_link_finger_2_inner_2_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_inner_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='jaco_joint_finger_2_inner_2' type='revolute'>
+      <child>jaco_link_finger_2_inner_2</child>
+      <parent>jaco_link_finger_2_inner_1</parent>
+      <axis>
+        <xyz>-0.983195 0.1825 -0.00463032</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.261799</upper>
+          <effort>30</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='jaco_link_finger_tip_2'>
+      <pose frame=''>0.0263598 0.0527993 0.134875 1.55992 -1.13111 1.39711</pose>
+      <inertial>
+        <pose frame=''>0.0140499 -0.00605434 2.02852e-07 0 -0 0</pose>
+        <mass>0.0124078</mass>
+        <inertia>
+          <ixx>6.83326e-07</ixx>
+          <ixy>-2.81123e-07</ixy>
+          <ixz>-7.46392e-12</ixz>
+          <iyy>2.46927e-06</iyy>
+          <iyz>1.87459e-11</iyz>
+          <izz>2.36577e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='jaco_link_finger_tip_2_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_tip_2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='jaco_link_finger_tip_2_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://kinova_kg3/meshes/jaco_link_finger_tip_2.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='jaco_joint_finger_tip_2' type='revolute'>
+      <child>jaco_link_finger_tip_2</child>
+      <parent>jaco_link_finger_2</parent>
+      <axis>
+        <xyz>0.983195 -0.1825 0.00463032</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.872665</upper>
+          <effort>30</effort>
+          <velocity>5</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </model>
+</sdf>

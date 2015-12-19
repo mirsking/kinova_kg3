@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<robot name="kinova_kg3_finger" xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:macro name="kinova_kg3_finger" params="index origin_xx origin_yy origin_zz origin_r origin_p origin_y">  
+		<joint name="jaco_joint_finger_${index}" type="revolute">
+			<origin xyz="${origin_xx} ${origin_yy} ${origin_zz}" rpy="${origin_r} ${origin_p} ${origin_y}" />
+			<parent link="jaco_link_hand" />
+			<child link="jaco_link_finger_${index}" />
+			<limit lower="0" upper="${50*M_PI/180}" effort="30" velocity="5"/>
+			<axis xyz="0 0 1" />
+	    </joint>
+
+    	<link name="jaco_link_finger_${index}">
+			<inertial>
+		  <origin
+			xyz="0.0208280958661102 -0.00622581300157336 -1.06166677567299E-07"
+			rpy="0 0 0" />
+		  <mass
+			value="0.00888493693152805" />
+		  <inertia
+			ixx="1.04331946762797E-06"
+			ixy="1.35201064011024E-07"
+			ixz="-1.63981636937686E-11"
+			iyy="2.40166986344156E-06"
+			iyz="-2.06309851527123E-12"
+			izz="2.18918819368423E-06" />
+	 
+			</inertial>
+			<visual>
+			  <origin xyz="0 0 0" rpy="0 0 0" />
+			  <geometry>
+				  <mesh filename="${PKG}meshes/jaco_link_finger_2.STL" />
+			  </geometry>
+			  <material name="kinova_color">
+				<color rgba="1 1 1 1" />
+			  </material>
+			</visual>
+			<collision>
+			  <origin xyz="0 0 0" rpy="0 0 0" />
+			  <geometry>
+				  <mesh filename="${PKG}meshes/jaco_link_finger_2.STL" />
+			  </geometry>
+			</collision>
+	    </link>
+
+
+		<link name="jaco_link_finger_tip_${index}">
+			<inertial>
+			  <origin
+				xyz="0.0140498893489319 -0.00605433855046034 2.02852203314789E-07"
+				rpy="0 0 0" />
+			  <mass
+				value="0.0124078189139213" />
+			  <inertia
+				ixx="6.8332629760199E-07"
+				ixy="-2.81122850352448E-07"
+				ixz="-7.46391812800588E-12"
+				iyy="2.46927029259255E-06"
+				iyz="1.87459305381369E-11"
+				izz="2.36577455894539E-06" />
+			</inertial>
+			<visual>
+			  <origin xyz="0 0 0" rpy="0 0 0" />
+			  <geometry>
+				  <mesh filename="${PKG}meshes/jaco_link_finger_tip_2.STL" />
+			  </geometry>
+			  <material name="kinova_color"/>
+			</visual>
+			<collision>
+			  <origin xyz="0 0 0" rpy="0 0 0" />
+			  <geometry>
+				  <mesh filename="${PKG}meshes/jaco_link_finger_tip_2.STL" />
+			  </geometry>
+			</collision>
+		</link>
+		<joint name="jaco_joint_finger_tip_${index}" type="revolute">
+
+		    <origin xyz="0.0441021541423999 0 0" rpy="-1.11022302462516E-16 1.38777878078145E-17 -8.67361737988404E-18" />
+			<parent link="jaco_link_finger_${index}" />
+			<child link="jaco_link_finger_tip_${index}" />
+			<limit lower="0" upper="${50*M_PI/180}" effort="30" velocity="5"/>
+			<axis xyz="0 0 1" />
+		</joint>
+	</xacro:macro>
+</robot>
+

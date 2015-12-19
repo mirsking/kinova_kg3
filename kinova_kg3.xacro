@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot name="kinova_kg3" xmlns:xacro="http://ros.org/wiki/xacro">
+	<property name="PKG" value="package://kinova_kg3/"/>
+	<property name="M_PI" value="3.14159265358979"/>
+
+	<link name="jaco_link_hand">
+		<inertial>
+		  <origin xyz="-0.000227690650068603 0.0042546911231965 0.0759513725294467" rpy="0 0 0" />
+		  <mass value="0.121634609410213" />
+		  <inertia
+			ixx="0.000215056800843909"
+			ixy="1.82062151904145E-08"
+			ixz="1.11116219706148E-07"
+			iyy="0.000187460117519514"
+			iyz="1.201905023717E-06"
+			izz="0.000158164269231599" />
+		</inertial>
+		<visual>
+		  <origin xyz="0 0 0" rpy="0 0 0" />
+		  <geometry>
+			  <mesh filename="${PKG}meshes/jaco_link_hand.STL" />
+		  </geometry>
+		  <material name="">
+			<color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+		  </material>
+		</visual>
+		<collision>
+		  <origin xyz="0 0 0" rpy="0 0 0" />
+		  <geometry>
+			  <mesh filename="${PKG}meshes/jaco_link_hand.STL" />
+		  </geometry>
+		</collision>
+	</link>
+
+	<xacro:include filename="kinova_kg3_finger.xacro" />
+	<xacro:kinova_kg3_finger index="1" origin_xx="0.00228309324472738" origin_yy="-0.0312566848705875" origin_zz="0.114430431187145"
+      origin_r="1.57925286601306" origin_p="-0.980344825914001" origin_y="-1.60227019088307" />
+
+	<xacro:kinova_kg3_finger index="2" origin_xx="0.0216844849669984" origin_yy="0.0270991446492316" origin_zz="0.114669378846608"
+      origin_r="1.5624840408079" origin_p="-0.979964587178996" origin_y="1.39416913026774" />
+
+	<xacro:kinova_kg3_finger index="3" origin_xx="-0.0228265816404847" origin_yy="0.0270473381757137" origin_zz="0.114459755557531"
+      origin_r="1.56250901307788" origin_p="-0.978234931608093" origin_y="1.76352902216187" />
+
+	<xacro:include filename="kinova_kg3_finger_inner.xacro" />
+	<xacro:kinova_kg3_finger_inner index="2" origin_xx="0.0213983238259719" origin_yy="0.025180093232184" origin_zz="0.0889963391205734"
+      origin_r="0.00485755340747217" origin_p="-0.307065259944085" origin_y="-1.75579500695222" />
+</robot>

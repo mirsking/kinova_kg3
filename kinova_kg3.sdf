@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <sdf version='1.5'>
   <model name='kinova_kg3'>
     <link name='jaco_link_hand'>
@@ -237,56 +238,5 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
-    <link name='jaco_link_finger_tip_2'>
-      <pose frame=''>0.0263598 0.0527993 0.134875 1.55992 -1.13111 1.39711</pose>
-      <inertial>
-        <pose frame=''>0.0140499 -0.00605434 2.02852e-07 0 -0 0</pose>
-        <mass>0.0124078</mass>
-        <inertia>
-          <ixx>6.83326e-07</ixx>
-          <ixy>-2.81123e-07</ixy>
-          <ixz>-7.46392e-12</ixz>
-          <iyy>2.46927e-06</iyy>
-          <iyz>1.87459e-11</iyz>
-          <izz>2.36577e-06</izz>
-        </inertia>
-      </inertial>
-      <collision name='jaco_link_finger_tip_2_collision'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://kinova_kg3/meshes/jaco_link_finger_tip_2.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='jaco_link_finger_tip_2_visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>model://kinova_kg3/meshes/jaco_link_finger_tip_2.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name='jaco_joint_finger_tip_2' type='revolute'>
-      <child>jaco_link_finger_tip_2</child>
-      <parent>jaco_link_finger_2</parent>
-      <axis>
-        <xyz>0.983195 -0.1825 0.00463032</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0.872665</upper>
-          <effort>30</effort>
-          <velocity>5</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis>
-    </joint>
-  </model>
+ </model>
 </sdf>

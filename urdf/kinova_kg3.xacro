@@ -42,7 +42,10 @@
 	<xacro:kinova_kg3_finger index="3" origin_xx="-0.0228265816404847" origin_yy="0.0270473381757137" origin_zz="0.114459755557531"
       origin_r="1.56250901307788" origin_p="-0.978234931608093" origin_y="1.76352902216187" />
 
+<!--
 	<xacro:include filename="kinova_kg3_finger_inner.xacro" />
 	<xacro:kinova_kg3_finger_inner index="2" origin_xx="0.0213983238259719" origin_yy="0.025180093232184" origin_zz="0.0889963391205734"
       origin_r="0.00485755340747217" origin_p="-0.307065259944085" origin_y="-1.75579500695222" />
+-->
 </robot>
+

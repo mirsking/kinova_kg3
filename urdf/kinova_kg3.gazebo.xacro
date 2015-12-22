@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="kinova_kg3_gazebo">
+
+    <gazebo reference="jaco_link_hand">
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo>
+      <plugin name="p3d_jaco_link_hand_controller" filename="libgazebo_ros_p3d.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>100.0</updateRate>
+        <bodyName>jaco_link_hand</bodyName>
+        <topicName>jaco_link_hand_pose_ground_truth</topicName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>map</frameName>
+      </plugin>
+
+      <!-- a formal implementation of grasp hack in gazebo with fixed joint -->
+      <gripper name="kionva_kg3_grasp_hack">
+        <grasp_check>
+          <attach_steps>20</attach_steps>
+          <detach_steps>40</detach_steps>
+          <min_contact_count>2</min_contact_count>
+        </grasp_check>
+        <gripper_link>jaco_link_finger_tip_1</gripper_link>
+        <gripper_link>jaco_link_finger_tip_2</gripper_link>
+        <gripper_link>jaco_link_finger_tip_3</gripper_link>
+        <palm_link>jaco_link_hand</palm_link>
+      </gripper>
+    </gazebo>
+
+  </xacro:macro>
+
+
+</robot>

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <robot name="kinova_kg3_finger" xmlns:xacro="http://ros.org/wiki/xacro">
+	<xacro:include filename="kinova_kg3_finger.gazebo.xacro"/>
 	<xacro:macro name="kinova_kg3_finger" params="index origin_xx origin_yy origin_zz origin_r origin_p origin_y">  
 		<joint name="jaco_joint_finger_${index}" type="revolute">
 			<origin xyz="${origin_xx} ${origin_yy} ${origin_zz}" rpy="${origin_r} ${origin_p} ${origin_y}" />
@@ -80,6 +81,8 @@
 			<limit lower="0" upper="${50*M_PI/180}" effort="30" velocity="5"/>
 			<axis xyz="0 0 1" />
 		</joint>
+
+		<xacro:kinova_kg3_finger_gazebo index="${index}" />
 	</xacro:macro>
 </robot>
 

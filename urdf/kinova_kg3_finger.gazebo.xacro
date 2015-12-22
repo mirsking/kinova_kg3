@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <property name="finger_stop_kd"             value="1.0" />
+  <property name="finger_stop_kp"             value="10000000.0" />
+  <property name="finger_fudge_factor"        value="1.0" />
+
+  <property name="finger_kp"                  value="0.0" />
+  <property name="finger_kd"                  value="0.0" />
+  <property name="finger_fm"                  value="0.0" />
+
+  <property name="finger_tip_kp"              value="0.0" />
+  <property name="finger_tip_kd"              value="0.0" />
+  <property name="finger_tip_fm"              value="0.0" />
+
+  <property name="finger_tip_mu"              value="500.0" />
+  <property name="finger_mu"                  value="500.0" />
+
+  <xacro:macro name="kinova_kg3_finger_gazebo" params="index">
+
+    <!-- Finger proximal digit -->
+
+	<gazebo reference="jaco_link_finger_${index}">
+      <turnGravityOff>true</turnGravityOff>
+      <mu1 value="${finger_mu}" />
+      <mu2 value="${finger_mu}" />
+      <kp value="1000000.0" />
+      <kd value="1.0" />
+    </gazebo>
+	<gazebo reference="jaco_joint_finger_${index}">
+      <stopKd value="${finger_stop_kd}" />
+      <stopKp value="${finger_stop_kp}" />
+      <fudgeFactor value="${finger_fudge_factor}" />
+      <provideFeedback value="true"/>
+    </gazebo>
+
+	<gazebo reference="jaco_link_finger_tip_${index}">
+      <turnGravityOff>true</turnGravityOff>
+      <selfCollide>false</selfCollide>
+	  <sensor type="contact" name="jaco_link_finger_tip_${index}_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+			<collision>jaco_link_finger_tip_${index}_collision</collision>
+        </contact>
+		<plugin name="jaco_link_finger_tip_${index}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+          <alwaysOn>true</alwaysOn>
+		  <frameName>jaco_link_finger_tip_${index}</frameName>
+          <updateRate>100.0</updateRate>
+		  <bumperTopicName>jaco_link_finger_tip_${index}_bumper</bumperTopicName>
+        </plugin>
+      </sensor>
+      <mu1 value="${finger_tip_mu}" />
+      <mu2 value="${finger_tip_mu}" />
+      <kp  value="10000000.0" />
+      <kd  value="1.0" />
+    </gazebo>
+	<gazebo reference="jaco_joint_finger_tip_${index}">
+      <stopKd value="${finger_stop_kd}" />
+      <stopKp value="${finger_stop_kp}" />
+      <fudgeFactor value="${finger_fudge_factor}" />
+      <provideFeedback value="true"/>
+    </gazebo>
+
+  </xacro:macro>
+
+
+
+</robot>
+

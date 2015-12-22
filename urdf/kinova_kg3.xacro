@@ -1,8 +1,15 @@
 <?xml version="1.0"?>
-<robot name="kinova_kg3" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="kinova_kg3"  
+	xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+    xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider"
+	xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+	xmlns:xacro="http://ros.org/wiki/xacro">
+
 	<property name="PKG" value="package://kinova_kg3/"/>
 	<property name="M_PI" value="3.14159265358979"/>
 
+	<xacro:include filename="kinova_kg3.gazebo.xacro"/>
 	<link name="jaco_link_hand">
 		<inertial>
 		  <origin xyz="-0.000227690650068603 0.0042546911231965 0.0759513725294467" rpy="0 0 0" />
@@ -31,6 +38,7 @@
 		  </geometry>
 		</collision>
 	</link>
+	<xacro:kinova_kg3_gazebo />
 
 	<xacro:include filename="kinova_kg3_finger.xacro" />
 	<xacro:kinova_kg3_finger index="1" origin_xx="0.00228309324472738" origin_yy="-0.0312566848705875" origin_zz="0.114430431187145"

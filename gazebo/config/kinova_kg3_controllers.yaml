@@ -1,0 +1,33 @@
+kinova_kg3:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Position Controllers ---------------------------------------
+  jaco_joint_finger_1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: jaco_joint_finger_1
+    pid: {p: 0.1, i: 0.0, d: 0.0}
+  jaco_joint_finger_tip_1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: jaco_joint_finger_tip_1
+    pid: {p: 0.1, i: 0.0, d: 0.0}
+
+  jaco_joint_finger_2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: jaco_joint_finger_2
+    pid: {p: 0.1, i: 0.0, d: 0.0}
+  jaco_joint_finger_tip_2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: jaco_joint_finger_tip_2
+    pid: {p: 0.1, i: 0.0, d: 0.0}
+
+  jaco_joint_finger_3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: jaco_joint_finger_3
+    pid: {p: 0.1, i: 0.0, d: 0.0}
+  jaco_joint_finger_tip_3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: jaco_joint_finger_tip_3
+    pid: {p: 0.1, i: 0.0, d: 0.0}

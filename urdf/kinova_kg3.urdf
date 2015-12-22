@@ -7,7 +7,7 @@
   <link name="jaco_link_hand">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.000227690650068603 0.0042546911231965 0.0759513725294467"/>
-      <mass value="0.121634609410213"/>
+      <mass value="0.49"/>
       <inertia ixx="0.000215056800843909" ixy="1.82062151904145E-08" ixz="1.11116219706148E-07" iyy="0.000187460117519514" iyz="1.201905023717E-06" izz="0.000158164269231599"/>
     </inertial>
     <visual>
@@ -53,6 +53,11 @@
       <palm_link>jaco_link_hand</palm_link>
     </gripper>
   </gazebo>
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>kinova_kg3</robotNamespace>
+    </plugin>
+  </gazebo>
   <joint name="jaco_joint_finger_1" type="revolute">
     <origin rpy="1.57925286601 -0.980344825914 -1.60227019088" xyz="0.00228309324473 -0.0312566848706 0.114430431187"/>
     <parent link="jaco_link_hand"/>
@@ -63,7 +68,7 @@
   <link name="jaco_link_finger_1">
     <inertial>
       <origin rpy="0 0 0" xyz="0.0208280958661102 -0.00622581300157336 -1.06166677567299E-07"/>
-      <mass value="0.00888493693152805"/>
+      <mass value="0.05"/>
       <inertia ixx="1.04331946762797E-06" ixy="1.35201064011024E-07" ixz="-1.63981636937686E-11" iyy="2.40166986344156E-06" iyz="-2.06309851527123E-12" izz="2.18918819368423E-06"/>
     </inertial>
     <visual>
@@ -85,7 +90,7 @@
   <link name="jaco_link_finger_tip_1">
     <inertial>
       <origin rpy="0 0 0" xyz="0.0140498893489319 -0.00605433855046034 2.02852203314789E-07"/>
-      <mass value="0.0124078189139213"/>
+      <mass value="0.03"/>
       <inertia ixx="6.8332629760199E-07" ixy="-2.81122850352448E-07" ixz="-7.46391812800588E-12" iyy="2.46927029259255E-06" iyz="1.87459305381369E-11" izz="2.36577455894539E-06"/>
     </inertial>
     <visual>
@@ -149,6 +154,26 @@
     <fudgeFactor value="1.0"/>
     <provideFeedback value="true"/>
   </gazebo>
+  <transmission name="jaco_joint_finger_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="jaco_joint_finger_1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="jaco_joint_finger_1_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="jaco_joint_finger_tip_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="jaco_joint_finger_tip_1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="jaco_joint_finger_tip_1_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <joint name="jaco_joint_finger_2" type="revolute">
     <origin rpy="1.56248404081 -0.979964587179 1.39416913027" xyz="0.021684484967 0.0270991446492 0.114669378847"/>
     <parent link="jaco_link_hand"/>
@@ -159,7 +184,7 @@
   <link name="jaco_link_finger_2">
     <inertial>
       <origin rpy="0 0 0" xyz="0.0208280958661102 -0.00622581300157336 -1.06166677567299E-07"/>
-      <mass value="0.00888493693152805"/>
+      <mass value="0.05"/>
       <inertia ixx="1.04331946762797E-06" ixy="1.35201064011024E-07" ixz="-1.63981636937686E-11" iyy="2.40166986344156E-06" iyz="-2.06309851527123E-12" izz="2.18918819368423E-06"/>
     </inertial>
     <visual>
@@ -181,7 +206,7 @@
   <link name="jaco_link_finger_tip_2">
     <inertial>
       <origin rpy="0 0 0" xyz="0.0140498893489319 -0.00605433855046034 2.02852203314789E-07"/>
-      <mass value="0.0124078189139213"/>
+      <mass value="0.03"/>
       <inertia ixx="6.8332629760199E-07" ixy="-2.81122850352448E-07" ixz="-7.46391812800588E-12" iyy="2.46927029259255E-06" iyz="1.87459305381369E-11" izz="2.36577455894539E-06"/>
     </inertial>
     <visual>
@@ -245,6 +270,26 @@
     <fudgeFactor value="1.0"/>
     <provideFeedback value="true"/>
   </gazebo>
+  <transmission name="jaco_joint_finger_2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="jaco_joint_finger_2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="jaco_joint_finger_2_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="jaco_joint_finger_tip_2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="jaco_joint_finger_tip_2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="jaco_joint_finger_tip_2_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <joint name="jaco_joint_finger_3" type="revolute">
     <origin rpy="1.56250901308 -0.978234931608 1.76352902216" xyz="-0.0228265816405 0.0270473381757 0.114459755558"/>
     <parent link="jaco_link_hand"/>
@@ -255,7 +300,7 @@
   <link name="jaco_link_finger_3">
     <inertial>
       <origin rpy="0 0 0" xyz="0.0208280958661102 -0.00622581300157336 -1.06166677567299E-07"/>
-      <mass value="0.00888493693152805"/>
+      <mass value="0.05"/>
       <inertia ixx="1.04331946762797E-06" ixy="1.35201064011024E-07" ixz="-1.63981636937686E-11" iyy="2.40166986344156E-06" iyz="-2.06309851527123E-12" izz="2.18918819368423E-06"/>
     </inertial>
     <visual>
@@ -277,7 +322,7 @@
   <link name="jaco_link_finger_tip_3">
     <inertial>
       <origin rpy="0 0 0" xyz="0.0140498893489319 -0.00605433855046034 2.02852203314789E-07"/>
-      <mass value="0.0124078189139213"/>
+      <mass value="0.03"/>
       <inertia ixx="6.8332629760199E-07" ixy="-2.81122850352448E-07" ixz="-7.46391812800588E-12" iyy="2.46927029259255E-06" iyz="1.87459305381369E-11" izz="2.36577455894539E-06"/>
     </inertial>
     <visual>
@@ -341,6 +386,26 @@
     <fudgeFactor value="1.0"/>
     <provideFeedback value="true"/>
   </gazebo>
+  <transmission name="jaco_joint_finger_3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="jaco_joint_finger_3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="jaco_joint_finger_3_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="jaco_joint_finger_tip_3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="jaco_joint_finger_tip_3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="jaco_joint_finger_tip_3_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <!--
 	<xacro:include filename="kinova_kg3_finger_inner.xacro" />
 	<xacro:kinova_kg3_finger_inner index="2" origin_xx="0.0213983238259719" origin_yy="0.025180093232184" origin_zz="0.0889963391205734"

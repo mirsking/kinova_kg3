@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="kinova_kg3_finger_transmission" params="index">
+	<transmission name="jaco_joint_finger_${index}_trans" >
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="jaco_joint_finger_${index}">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+
+		<actuator name="jaco_joint_finger_${index}_motor">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+    </transmission>
+
+	<transmission name="jaco_joint_finger_tip_${index}_trans" >
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="jaco_joint_finger_tip_${index}">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="jaco_joint_finger_tip_${index}_motor">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+    </transmission>
+  </xacro:macro>
+
+
+</robot>

@@ -1,9 +1,9 @@
-<sdf version='1.5'>
+<sdf version='1.4'>
   <model name='kinova_kg3'>
     <link name='jaco_link_hand'>
-      <pose frame=''>0 0 0 0 -0 0</pose>
+      <pose>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose frame=''>-0.000227691 0.00425469 0.0759514 0 -0 0</pose>
+        <pose>-0.000227691 0.00425469 0.0759514 0 -0 0</pose>
         <mass>0.49</mass>
         <inertia>
           <ixx>0.000215057</ixx>
@@ -15,7 +15,7 @@
         </inertia>
       </inertial>
       <collision name='jaco_link_hand_collision'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -32,7 +32,7 @@
         </surface>
       </collision>
       <visual name='jaco_link_hand_visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -41,13 +41,16 @@
         </geometry>
       </visual>
       <gravity>1</gravity>
-      <velocity_decay/>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
       <self_collide>0</self_collide>
     </link>
     <link name='jaco_link_finger_1'>
-      <pose frame=''>0.00228309 -0.0312567 0.11443 1.57925 -0.980345 -1.60227</pose>
+      <pose>0.00228309 -0.0312567 0.11443 1.57925 -0.980345 -1.60227</pose>
       <inertial>
-        <pose frame=''>0.0208281 -0.00622581 -1.06167e-07 0 -0 0</pose>
+        <pose>0.0208281 -0.00622581 -1.06167e-07 0 -0 0</pose>
         <mass>0.05</mass>
         <inertia>
           <ixx>1.04332e-06</ixx>
@@ -59,7 +62,7 @@
         </inertia>
       </inertial>
       <collision name='jaco_link_finger_1_collision'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -82,7 +85,7 @@
         </surface>
       </collision>
       <visual name='jaco_link_finger_1_visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -91,7 +94,10 @@
         </geometry>
       </visual>
       <gravity>0</gravity>
-      <velocity_decay/>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
       <self_collide>0</self_collide>
     </link>
     <joint name='jaco_joint_finger_1' type='revolute'>
@@ -105,11 +111,7 @@
           <effort>30</effort>
           <velocity>5</velocity>
         </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics/>
       </axis>
       <physics>
         <provide_feedback>1</provide_feedback>
@@ -124,9 +126,9 @@
       </physics>
     </joint>
     <link name='jaco_link_finger_tip_1'>
-      <pose frame=''>0.00151043 -0.0557978 0.151066 1.57925 -0.980345 -1.60227</pose>
+      <pose>0.00151043 -0.0557978 0.151066 1.57925 -0.980345 -1.60227</pose>
       <inertial>
-        <pose frame=''>0.0140499 -0.00605434 2.02852e-07 0 -0 0</pose>
+        <pose>0.0140499 -0.00605434 2.02852e-07 0 -0 0</pose>
         <mass>0.03</mass>
         <inertia>
           <ixx>6.83326e-07</ixx>
@@ -138,7 +140,7 @@
         </inertia>
       </inertial>
       <collision name='jaco_link_finger_tip_1_collision'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -161,7 +163,7 @@
         </surface>
       </collision>
       <visual name='jaco_link_finger_tip_1_visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -170,7 +172,10 @@
         </geometry>
       </visual>
       <gravity>0</gravity>
-      <velocity_decay/>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
       <self_collide>0</self_collide>
       <sensor name='jaco_link_finger_tip_1_contact_sensor' type='contact'>
         <update_rate>100</update_rate>
@@ -197,11 +202,7 @@
           <effort>30</effort>
           <velocity>5</velocity>
         </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics/>
       </axis>
       <physics>
         <provide_feedback>1</provide_feedback>
@@ -216,9 +217,9 @@
       </physics>
     </joint>
     <link name='jaco_link_finger_2'>
-      <pose frame=''>0.0216845 0.0270991 0.114669 1.56248 -0.979965 1.39417</pose>
+      <pose>0.0216845 0.0270991 0.114669 1.56248 -0.979965 1.39417</pose>
       <inertial>
-        <pose frame=''>0.0208281 -0.00622581 -1.06167e-07 0 -0 0</pose>
+        <pose>0.0208281 -0.00622581 -1.06167e-07 0 -0 0</pose>
         <mass>0.05</mass>
         <inertia>
           <ixx>1.04332e-06</ixx>
@@ -230,7 +231,7 @@
         </inertia>
       </inertial>
       <collision name='jaco_link_finger_2_collision'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -253,7 +254,7 @@
         </surface>
       </collision>
       <visual name='jaco_link_finger_2_visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -262,7 +263,10 @@
         </geometry>
       </visual>
       <gravity>0</gravity>
-      <velocity_decay/>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
       <self_collide>0</self_collide>
     </link>
     <joint name='jaco_joint_finger_2' type='revolute'>
@@ -276,11 +280,7 @@
           <effort>30</effort>
           <velocity>5</velocity>
         </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics/>
       </axis>
       <physics>
         <provide_feedback>1</provide_feedback>
@@ -295,9 +295,9 @@
       </physics>
     </joint>
     <link name='jaco_link_finger_tip_2'>
-      <pose frame=''>0.0260012 0.0512841 0.151295 1.56248 -0.979965 1.39417</pose>
+      <pose>0.0260012 0.0512841 0.151295 1.56248 -0.979965 1.39417</pose>
       <inertial>
-        <pose frame=''>0.0140499 -0.00605434 2.02852e-07 0 -0 0</pose>
+        <pose>0.0140499 -0.00605434 2.02852e-07 0 -0 0</pose>
         <mass>0.03</mass>
         <inertia>
           <ixx>6.83326e-07</ixx>
@@ -309,7 +309,7 @@
         </inertia>
       </inertial>
       <collision name='jaco_link_finger_tip_2_collision'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -332,7 +332,7 @@
         </surface>
       </collision>
       <visual name='jaco_link_finger_tip_2_visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -341,7 +341,10 @@
         </geometry>
       </visual>
       <gravity>0</gravity>
-      <velocity_decay/>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
       <self_collide>0</self_collide>
       <sensor name='jaco_link_finger_tip_2_contact_sensor' type='contact'>
         <update_rate>100</update_rate>
@@ -368,11 +371,7 @@
           <effort>30</effort>
           <velocity>5</velocity>
         </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics/>
       </axis>
       <physics>
         <provide_feedback>1</provide_feedback>
@@ -387,9 +386,9 @@
       </physics>
     </joint>
     <link name='jaco_link_finger_3'>
-      <pose frame=''>-0.0228266 0.0270473 0.11446 1.56251 -0.978235 1.76353</pose>
+      <pose>-0.0228266 0.0270473 0.11446 1.56251 -0.978235 1.76353</pose>
       <inertial>
-        <pose frame=''>0.0208281 -0.00622581 -1.06167e-07 0 -0 0</pose>
+        <pose>0.0208281 -0.00622581 -1.06167e-07 0 -0 0</pose>
         <mass>0.05</mass>
         <inertia>
           <ixx>1.04332e-06</ixx>
@@ -401,7 +400,7 @@
         </inertia>
       </inertial>
       <collision name='jaco_link_finger_3_collision'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -424,7 +423,7 @@
         </surface>
       </collision>
       <visual name='jaco_link_finger_3_visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -433,7 +432,10 @@
         </geometry>
       </visual>
       <gravity>0</gravity>
-      <velocity_decay/>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
       <self_collide>0</self_collide>
     </link>
     <joint name='jaco_joint_finger_3' type='revolute'>
@@ -447,11 +449,7 @@
           <effort>30</effort>
           <velocity>5</velocity>
         </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics/>
       </axis>
       <physics>
         <provide_feedback>1</provide_feedback>
@@ -466,9 +464,9 @@
       </physics>
     </joint>
     <link name='jaco_link_finger_tip_3'>
-      <pose frame=''>-0.0275444 0.0512218 0.151043 1.56251 -0.978235 1.76353</pose>
+      <pose>-0.0275444 0.0512218 0.151043 1.56251 -0.978235 1.76353</pose>
       <inertial>
-        <pose frame=''>0.0140499 -0.00605434 2.02852e-07 0 -0 0</pose>
+        <pose>0.0140499 -0.00605434 2.02852e-07 0 -0 0</pose>
         <mass>0.03</mass>
         <inertia>
           <ixx>6.83326e-07</ixx>
@@ -480,7 +478,7 @@
         </inertia>
       </inertial>
       <collision name='jaco_link_finger_tip_3_collision'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -503,7 +501,7 @@
         </surface>
       </collision>
       <visual name='jaco_link_finger_tip_3_visual'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -512,7 +510,10 @@
         </geometry>
       </visual>
       <gravity>0</gravity>
-      <velocity_decay/>
+      <velocity_decay>
+        <linear>0</linear>
+        <angular>0</angular>
+      </velocity_decay>
       <self_collide>0</self_collide>
       <sensor name='jaco_link_finger_tip_3_contact_sensor' type='contact'>
         <update_rate>100</update_rate>
@@ -539,11 +540,7 @@
           <effort>30</effort>
           <velocity>5</velocity>
         </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <dynamics/>
       </axis>
       <physics>
         <provide_feedback>1</provide_feedback>
